@@ -1,0 +1,42 @@
+/*
+Color Reference:
+
+Dark Background ---------------------- #1F1F1F
+Slightly less dark Background -------- #3D3D3D
+Border Grey -------------------------- #CCCCCC
+Whitest ------------------------------ #EEEEEE
+
+Blue --------------------------------- #377BA8
+
+*/
+
+body {
+    font-family: sans-serif;
+    background: #1F1F1F;
+    margin-left: 10%;
+    margin-right: 10%;
+    }
+
+
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1              { border-bottom: 2px solid #EEEEEE; }
+h2              { font-size: 1.2em; }
+
+.page           { margin: 2em auto;
+                  height: 50em;
+                  border: 5px solid #CCCCCC;
+                  padding: 0.8em;
+                  background: #3D3D3D; }
+
+
+
+
+#navcontainer ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#navcontainer ul li { display: inline; }
+#navcontainer ul li a { text-decoration: none; }
