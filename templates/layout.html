@@ -1,6 +1,9 @@
 <!doctype html>
+
 <title>Linux Command Center</title>
+
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
@@ -13,10 +16,11 @@
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
 
+
 <div class=page>
     <h1>Linux Command Center</h1>
     <div id="navcontainer">
-        <nav>
+        <nav id="topnav">
             <ul class>
                 <li> <a href="{{ url_for('home') }}"> Home </a> </li>
                 <li> <a href="{{ url_for('disks') }}"> Disks </a> </li>

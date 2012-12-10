@@ -10,6 +10,7 @@ Blue --------------------------------- #377BA8
 
 */
 
+/* Global */
 body {
     font-family: sans-serif;
     background: #1F1F1F;
@@ -29,14 +30,24 @@ h2              { font-size: 1.2em; }
                   padding: 0.8em;
                   background: #3D3D3D; }
 
+div.contentContainer {
+    border: 2px solid #377BA8;
+    margin: 2px;
+    padding: 2px;
+}
 
 
+/* Navigation Bar */
+#topnav {
+
+}
 
 #navcontainer ul
 {
-    margin: 0;
+    /*margin: 0;*/
     padding: 0;
     list-style-type: none;
+    border-bottom: 1px solid #1F1F1F;
 }
 #navcontainer ul li { display: inline; }
 #navcontainer ul li a { text-decoration: none; }

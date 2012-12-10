@@ -1,10 +1,15 @@
+"""
+The main execution entry-point for the webapp/services.
+"""
+
+# Import system stuff
 from flask import Flask, request, session, g, redirect, url_for,\
     abort, render_template, flash, jsonify
-import os
-import sys
 
 app = Flask(__name__)
 
+#Import our stuff
+from services.sensors import SensorService
 
 @app.before_request
 def before_request_callback():
@@ -39,13 +44,16 @@ def about():
 
 @app.route("/system/sensors", methods=['GET'])
 def sensors():
-    sensors = os.popen('sensors')
-    sensors_by_line = []
-    for line in sensors.readlines():
-        sensors_by_line.append(line)
+
+    sensor_service = SensorService()
+    sensor_data = sensor_service.get_sensor_data()
 
 
-    return jsonify({'success': True, 'result': sensors_by_line})
+    return jsonify({'success': True,
+                    'cpu_temp': sensor_data['cpu_temp'],
+                    'mb_temp': sensor_data['mb_temp'],
+                    'vid_temp': sensor_data['vid_temp'],
+                    'sensor_data': sensor_data['sensor_data']})
 
 
 if __name__ == "__main__":
