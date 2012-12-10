@@ -36,10 +36,10 @@ class SensorService():
             elif "temp1" in line:
                 vid_temp = self._get_first_temp_in_sensor_line(line)
 
-        sensor_data = ''.join(sensors_by_line)
+        #sensor_data = ''.join(sensors_by_line)
 
         get_sensor_data_result = {
-            'sensor_data': sensor_data,
+            'sensors_by_line': sensors_by_line,
             'cpu_temp': cpu_temp,
             'mb_temp': mb_temp,
             'vid_temp': vid_temp

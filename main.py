@@ -53,7 +53,7 @@ def sensors():
                     'cpu_temp': sensor_data['cpu_temp'],
                     'mb_temp': sensor_data['mb_temp'],
                     'vid_temp': sensor_data['vid_temp'],
-                    'sensor_data': sensor_data['sensor_data']})
+                    'sensors_by_line': sensor_data['sensors_by_line']})
 
 
 if __name__ == "__main__":
