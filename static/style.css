@@ -1,43 +1,70 @@
 /*
 Color Reference:
-
-Dark Background ---------------------- #1F1F1F
-Slightly less dark Background -------- #3D3D3D
-Border Grey -------------------------- #CCCCCC
-Whitest ------------------------------ #EEEEEE
-
-Blue --------------------------------- #377BA8
-
+assigning to classes strictly to get ide sugar.
 */
+.darkBackground { color: #000000; }
+.lessDarkBackground { color: #1F1F1F; }
+.grey { color: #CCCCCC; }
+.white {color: #EEEEEE }
+.red {color: #FF6666 }
+.green {color: #4DFFFF}
+
+
 
 /* Global */
 body {
-    font-family: sans-serif;
-    background: #1F1F1F;
+    font-family: Fixed, monospace;
+    background: #000000;
     margin-left: 10%;
     margin-right: 10%;
-    }
-
-
-a, h1, h2       { color: #377BA8; }
-h1, h2          { font-family: 'Georgia', serif; margin: 0; }
-h1              { border-bottom: 2px solid #EEEEEE; }
-h2              { font-size: 1.2em; }
-
-.page           { margin: 2em auto;
-                  height: 50em;
-                  border: 5px solid #CCCCCC;
-                  padding: 0.8em;
-                  background: #3D3D3D; }
-
-div.contentContainer {
-    border: 2px solid #377BA8;
-    margin: 2px;
-    padding: 2px;
 }
 
+a, h1, h2 {
+    color: #FF6666;
+}
 
-/* Navigation Bar */
+h1, h2 {
+    font-family: 'Georgia', serif; margin: 0;
+}
+
+h1 {
+    border-bottom: 2px solid #EEEEEE;
+    padding-bottom: .4em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+.page {
+    margin: 2em auto;
+    height: 50em;
+    border: 5px solid #CCCCCC;
+    padding: 0.8em;
+    background: #1F1F1F;
+}
+
+footer {
+    color: #CCCCCC;
+}
+
+div.contentContainer {
+    border: 2px solid #FF6666;
+    margin: 2px;
+    padding: 2px;
+    color: #CCCCCC;
+    font-size: .8em;
+}
+
+span.green {
+    color: #4DFFFF;
+}
+
+span.contentContainer { color: #4DFFFF}
+
+/******************
+* Navigation Bar  *
+******************/
 #topnav {
 
 }
@@ -45,9 +72,19 @@ div.contentContainer {
 #navcontainer ul
 {
     /*margin: 0;*/
-    padding: 0;
+    margin: 0 0 1em 0;
+    padding: 0 0 0 .3em;
     list-style-type: none;
-    border-bottom: 1px solid #1F1F1F;
+    border-bottom: 2px solid #EEEEEE;
+    border-right: 1px solid #EEEEEE;
+    border-left: 1px solid #EEEEEE;
 }
 #navcontainer ul li { display: inline; }
 #navcontainer ul li a { text-decoration: none; }
+
+/******************
+* Home            *
+******************/
+#sensorDataHeader {
+    border-bottom: 1px solid #CCCCCC;
+}

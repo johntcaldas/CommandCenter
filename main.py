@@ -5,6 +5,7 @@ The main execution entry-point for the webapp/services.
 # Import system stuff
 from flask import Flask, request, session, g, redirect, url_for,\
     abort, render_template, flash, jsonify
+import os
 
 app = Flask(__name__)
 
@@ -54,6 +55,15 @@ def sensors():
                     'mb_temp': sensor_data['mb_temp'],
                     'vid_temp': sensor_data['vid_temp'],
                     'sensors_by_line': sensor_data['sensors_by_line']})
+
+
+@app.route("/system/date", methods=['GET'])
+def system_date():
+    date_handle = os.popen('date')
+    date = date_handle.readline()
+
+    return jsonify({'success': True,
+                   'date': date})
 
 
 if __name__ == "__main__":

@@ -1,23 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/static/js/home.js" line="26" />
+    <bookmark url="file://$PROJECT_DIR$/static/js/sensors.js" line="27" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c7793aae-4870-44ce-862b-357a0c4f6236" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/home.js" afterPath="$PROJECT_DIR$/static/js/home.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/main.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/js/sensors.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js/home.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="$PROJECT_DIR$/templates/layout.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/main.html" afterPath="$PROJECT_DIR$/templates/main.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/sensors.py" afterPath="$PROJECT_DIR$/services/sensors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/style.css" afterPath="$PROJECT_DIR$/static/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="command_center.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355082251875" ignored="false" />
-    <file path="/home.js" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355102722991" ignored="false" />
-    <file path="/style.css" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355087960979" ignored="false" />
-    <file path="/main.html" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355100451407" ignored="false" />
-    <file path="/main.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355101233486" ignored="false" />
+    <file path="/home.js" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355107662408" ignored="false" />
+    <file path="/style.css" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355107488554" ignored="false" />
+    <file path="/main.html" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355106317937" ignored="false" />
+    <file path="/main.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355108083838" ignored="false" />
     <file path="/sensors.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355101213575" ignored="false" />
     <file path="$PROJECT_DIR$/../../ease/web/websvc/easesvcpy/easesvc/data/device_data.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355096531722" ignored="false" />
     <file path="$PROJECT_DIR$/../../ease/web/websvc/easesvcpy/easesvc/data/base_data.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355096531722" ignored="false" />
@@ -27,6 +30,8 @@
     <file path="$PROJECT_DIR$/../../ease/web/websvc/easesvcpy/easesvc/services/app_service.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355096532039" ignored="false" />
     <file path="$PROJECT_DIR$/../../ease/web/websvc/easesvcpy/easesvc/services/user_service.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355096532039" ignored="false" />
     <file path="$PROJECT_DIR$/../../ease/web/websvc/easesvcpy/easesvc/interfaces/applications.py" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355096532039" ignored="false" />
+    <file path="/layout.html" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355109961528" ignored="false" />
+    <file path="/main.js" changelist="c7793aae-4870-44ce-862b-357a0c4f6236" time="1355108396821" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,8 +94,10 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="71" selection-start="1308" selection-end="1308" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="44" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#87#195#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -98,7 +105,7 @@
       <file leaf-file-name="sensors.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/services/sensors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="46" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0">
+            <state line="18" column="8" selection-start="337" selection-end="366" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#84#93#0" expanded="true" />
               </folding>
@@ -106,10 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="layout.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="16" selection-start="571" selection-end="571" vertical-scroll-proportion="-11.875">
+            <state line="34" column="18" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.816">
               <folding />
             </state>
           </provider>
@@ -118,7 +125,7 @@
       <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="10" selection-start="269" selection-end="269" vertical-scroll-proportion="-5.625">
+            <state line="2" column="0" selection-start="45" selection-end="139" vertical-scroll-proportion="-1.25">
               <folding />
             </state>
           </provider>
@@ -127,16 +134,25 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="38" column="0" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0">
+            <state line="29" column="4" selection-start="473" selection-end="473" vertical-scroll-proportion="-15.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/js/home.js">
+      <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="36" selection-start="730" selection-end="730" vertical-scroll-proportion="0.30046225">
+            <state line="20" column="1" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sensors.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/js/sensors.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="4" selection-start="569" selection-end="861" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -167,12 +183,14 @@
         <option value="$PROJECT_DIR$/templates/disks.html" />
         <option value="$PROJECT_DIR$/templates/about.html" />
         <option value="$PROJECT_DIR$/static/js/tinker.js" />
-        <option value="$PROJECT_DIR$/templates/layout.html" />
-        <option value="$PROJECT_DIR$/static/style.css" />
-        <option value="$PROJECT_DIR$/templates/main.html" />
         <option value="$PROJECT_DIR$/services/sensors.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/static/js/home.js" />
+        <option value="$PROJECT_DIR$/templates/main.html" />
+        <option value="$PROJECT_DIR$/static/style.css" />
+        <option value="$PROJECT_DIR$/static/js/sensors.js" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/static/js/main.js" />
+        <option value="$PROJECT_DIR$/templates/layout.html" />
       </list>
     </option>
   </component>
@@ -236,7 +254,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="command_center" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="command_center" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -472,8 +508,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27284595" sideWeight="0.66046965" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27284595" sideWeight="0.2221135" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27284595" sideWeight="0.43150684" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4001957" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -544,8 +580,8 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/static/js/home.js</url>
-          <line>10</line>
+          <url>file://$PROJECT_DIR$/static/js/sensors.js</url>
+          <line>11</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
@@ -556,13 +592,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="34" column="1" selection-start="769" selection-end="769" vertical-scroll-proportion="0.0">
@@ -577,7 +606,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/home.js">
+    <entry file="file://$PROJECT_DIR$/static/js/sensors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="215" selection-end="215" vertical-scroll-proportion="0.0">
           <folding />
@@ -622,30 +651,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/layout.html">
+    <entry file="file://$PROJECT_DIR$/static/js/sensors.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="16" selection-start="571" selection-end="571" vertical-scroll-proportion="-11.875">
+        <state line="26" column="4" selection-start="569" selection-end="861" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main.html">
+    <entry file="file://$PROJECT_DIR$/static/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="10" selection-start="269" selection-end="269" vertical-scroll-proportion="-5.625">
+        <state line="20" column="1" selection-start="401" selection-end="401" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="0" selection-start="861" selection-end="861" vertical-scroll-proportion="0.0">
+        <state line="29" column="4" selection-start="473" selection-end="473" vertical-scroll-proportion="-15.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/services/sensors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="46" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0">
+        <state line="18" column="8" selection-start="337" selection-end="366" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#84#93#0" expanded="true" />
           </folding>
@@ -654,14 +683,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="71" selection-start="1308" selection-end="1308" vertical-scroll-proportion="0.0">
+        <state line="44" column="0" selection-start="887" selection-end="887" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#87#195#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="45" selection-end="139" vertical-scroll-proportion="-1.25">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/js/home.js">
+    <entry file="file://$PROJECT_DIR$/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="36" selection-start="730" selection-end="730" vertical-scroll-proportion="0.30046225">
+        <state line="34" column="18" selection-start="1183" selection-end="1183" vertical-scroll-proportion="0.816">
           <folding />
         </state>
       </provider>
