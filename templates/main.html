@@ -1,13 +1,38 @@
 {% extends "layout.html" %}
 {% block body %}
-<script type=text/javascript src="{{ url_for('static', filename='js/sensors.js') }}"></script>
-<div id="sensorData" class="contentContainer">
-    <h3>Sensors</h3>
-    <div id="sensorDataHeader">
 
+<!-- Sensors -->
+<script type=text/javascript src="{{ url_for('static', filename='js/sensors.js') }}"></script>
+
+<div id="sensorData" class="contentContainer">
+    <div id="sensorsClickableDiv">
+        <h3>Sensors</h3>
+        <div id="sensorDataHeader"></div>
     </div>
     <div id="sensorDataFull">
 
+    </div>
+</div>
+
+
+<!-- Top -->
+<script type=text/javascript src="{{ url_for('static', filename='js/top.js') }}"></script>
+<script type=text/javascript src="{{ url_for('static', filename='js/lib/jquery.dataTables.min.js') }}"></script>
+
+<div id="topData" class="contentContainer">
+    <div id="topClickableDiv">
+        <h3>Top</h3>
+        <div id="topDataHeader"></div>
+    </div>
+    <div id="topDataFull">
+        <table id="topTable">
+            <thead>
+            </thead>
+            <tbody>
+            </tbody>
+            <tfoot>
+            </tfoot>
+        </table>
     </div>
 </div>
 {% endblock %}

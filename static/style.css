@@ -38,7 +38,7 @@ h2 {
 
 .page {
     margin: 2em auto;
-    height: 50em;
+    /*height: 50em;*/
     border: 5px solid #CCCCCC;
     padding: 0.8em;
     background: #1F1F1F;
@@ -86,5 +86,5 @@ span.contentContainer { color: #4DFFFF}
 * Home            *
 ******************/
 #sensorDataHeader {
-    border-bottom: 1px solid #CCCCCC;
+    /*border-bottom: 1px solid #CCCCCC;*/
 }

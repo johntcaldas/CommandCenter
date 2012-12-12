@@ -2,7 +2,7 @@
 function Home() {
 
     var self = this;
-    var m_sensorContainerDiv = null;
+    var m_sensorClickDiv = null;
     var m_sensorHeaderDiv = null;
     var m_sensorFullDiv = null;
     var m_sensorData = [];
@@ -10,11 +10,11 @@ function Home() {
 
 
     this.initialize = function() {
-        m_sensorContainerDiv = $("#sensorData");
+        m_sensorClickDiv = $("#sensorsClickableDiv");
         m_sensorHeaderDiv = $("#sensorDataHeader");
         m_sensorFullDiv = $('#sensorDataFull');
 
-        m_sensorContainerDiv.click(function() {
+        m_sensorClickDiv.click(function() {
            self.toggleFullSensorData()
         });
 
@@ -31,18 +31,23 @@ function Home() {
         },
         function(data) {
             m_sensorData = data;
-            self.placeSensorDataOnPage();
+            if(m_sensorData['success']) {
+                self.placeSensorDataOnPage();
+            }
+            else {
+                self.placeErrorMessageOnPage();
+            }
         });
     };
 
 
     this.toggleFullSensorData = function() {
         if(m_fullDataShowing) {
-            m_sensorFullDiv.hide();
+            m_sensorFullDiv.hide(300);
             m_fullDataShowing = false;
         }
         else {
-            m_sensorFullDiv.show();
+            m_sensorFullDiv.show(300);
             m_fullDataShowing = true;
         }
     };
@@ -91,7 +96,12 @@ function Home() {
         tableHTML += "</table>";
 
         m_sensorFullDiv.html(tableHTML);
-    }
+    };
+
+
+    this.placeErrorMessageOnPage = function() {
+        m_sensorHeaderDiv.html("Error loading sensor data.")
+    };
 }
 
 

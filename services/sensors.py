@@ -16,14 +16,14 @@ class SensorService():
         Return these as separate values, along with the whole dump of the command.
         """
 
-        sensors = os.popen('sensors')
+        sensors_handle = os.popen('sensors')
         sensors_by_line = []
 
         cpu_temp = ""
         mb_temp = ""
         vid_temp = ""
 
-        for line in sensors.readlines():
+        for line in sensors_handle.readlines():
             sensors_by_line.append(line)
 
             if "CPU Temperature" in line:
