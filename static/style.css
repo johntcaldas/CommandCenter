@@ -49,9 +49,8 @@ footer {
 }
 
 div.contentContainer {
-    border: 2px solid #FF6666;
+    border: 1px solid #FF6666;
     margin: 2px;
-    padding: 2px;
     color: #CCCCCC;
     font-size: .8em;
 }
@@ -87,8 +86,8 @@ span.contentContainer { color: #4DFFFF}
 /******************
 * Home            *
 ******************/
-#sensorDataHeader {
-    /*border-bottom: 1px solid #CCCCCC;*/
+.clickable {
+    cursor: pointer;
 }
 
 #topTable_filter input {

@@ -1,28 +1,28 @@
 function Top() {
 
     var self = this;
+
     var m_topClickDiv;
     var m_topFullDiv;
     var m_topHeaderDiv;
+
     var m_topTable;
     var m_topData = [];
-    var m_fullDataShowing = false;
+    var m_expandableContentDivUtil;
+
 
     this.initialize = function () {
-
         m_topClickDiv = $('#topClickableDiv');
         m_topFullDiv = $('#topDataFull');
         m_topHeaderDiv = $('#topDataHeader');
         m_topTable = $('#topTable');
 
-        m_topClickDiv.click(function() {
-            self.toggleFullTopData()
-        });
-
-        m_topFullDiv.hide();
-
         self.getTopData();
+
+        m_expandableContentDivUtil = new ExpandableContentDiv();
+        m_expandableContentDivUtil.initialize(m_topClickDiv, m_topHeaderDiv, m_topFullDiv);
     };
+
 
     this.getTopData = function() {
         $.getJSON($SCRIPT_ROOT + '/system/top',
@@ -33,30 +33,11 @@ function Top() {
                     self.placeTopDataOnPage();
                 }
                 else {
-                    self.placeErrorMessageOnPage();
+                    m_expandableContentDivUtil.placeErrorMessageOnPage();
                 }
             });
     };
 
-    this.toggleFullTopData = function() {
-        if(m_fullDataShowing) {
-            m_topFullDiv.hide(300);
-            m_fullDataShowing = false;
-        }
-        else {
-            m_topFullDiv.show(300);
-
-            // So the data table knows when to size itself.
-            setTimeout(function() {
-                var table = $.fn.dataTable.fnTables(true);
-                if ( table.length > 0 ) {
-                    $(table).dataTable().fnAdjustColumnSizing();
-                }
-            }, 300);
-
-            m_fullDataShowing = true;
-        }
-    };
 
     this.placeTopDataOnPage = function () {
         m_topHeaderDiv.html(m_topData['first_line']);
@@ -79,11 +60,8 @@ function Top() {
             ]
         });
     };
-
-    this.placeErrorMessageOnPage = function () {
-
-    };
 }
+
 
 $(document).ready(function() {
     var top = new Top();
