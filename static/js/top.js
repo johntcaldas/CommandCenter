@@ -45,6 +45,15 @@ function Top() {
         }
         else {
             m_topFullDiv.show(300);
+
+            // So the data table knows when to size itself.
+            setTimeout(function() {
+                var table = $.fn.dataTable.fnTables(true);
+                if ( table.length > 0 ) {
+                    $(table).dataTable().fnAdjustColumnSizing();
+                }
+            }, 300);
+
             m_fullDataShowing = true;
         }
     };
@@ -61,7 +70,13 @@ function Top() {
 
         m_topTable.dataTable({
             "aaData":m_topData['rows'],
-            "aoColumns": columns
+            "aoColumns": columns,
+            "bPaginate": false,
+            "sScrollY": "30em",
+            "bJQueryUI": true,
+            "aoColumnDefs": [
+                { "sWidth": "20%", "aTargets": [ -1 ] }
+            ]
         });
     };
 

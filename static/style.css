@@ -62,6 +62,7 @@ span.green {
 
 span.contentContainer { color: #4DFFFF}
 
+
 /******************
 * Navigation Bar  *
 ******************/
@@ -82,9 +83,15 @@ span.contentContainer { color: #4DFFFF}
 #navcontainer ul li { display: inline; }
 #navcontainer ul li a { text-decoration: none; }
 
+
 /******************
 * Home            *
 ******************/
 #sensorDataHeader {
     /*border-bottom: 1px solid #CCCCCC;*/
+}
+
+#topTable_filter input {
+    background-color: #1F1F1F;
+    color: #CCCCCC;
 }
