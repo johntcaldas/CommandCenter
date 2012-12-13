@@ -48,18 +48,6 @@ footer {
     color: #CCCCCC;
 }
 
-div.contentContainer {
-    border: 1px solid #FF6666;
-    margin: 2px;
-    color: #CCCCCC;
-    font-size: .8em;
-}
-
-span.green {
-    color: #4DFFFF;
-}
-
-span.contentContainer { color: #4DFFFF}
 
 
 /******************
@@ -83,11 +71,46 @@ span.contentContainer { color: #4DFFFF}
 #navcontainer ul li a { text-decoration: none; }
 
 
-/******************
-* Home            *
-******************/
+
+/*********************
+* Content Containers *
+*********************/
+
+div.contentContainer {
+    border: 1px solid #FF6666;
+    margin: 2px;
+    color: #CCCCCC;
+    font-size: .8em;
+}
+
+span.green {
+    color: #4DFFFF;
+}
+
+span.contentContainer { color: #4DFFFF}
+
+
 .clickable {
     cursor: pointer;
+}
+
+.clickable h3 {
+    padding: .5em .5em .5em .2em;
+    margin: 0 0 0 0;
+    float: left;
+}
+
+.contentHeader {
+    float: right;
+}
+
+.contentFull {
+
+}
+
+.clear {
+    clear:both;
+    font-size:0px;
 }
 
 #topTable_filter input {
