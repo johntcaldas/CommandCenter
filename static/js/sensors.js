@@ -42,10 +42,19 @@ function Home() {
 
     this.placeSensorDataOnPage = function() {
 
+        var cpu_temp = m_sensorData['cpu_temp'];
+        var mb_temp = m_sensorData['mb_temp'];
+        var vid_temp = m_sensorData['vid_temp'];
+
+        // If these come back empty (ie. server could not find them in 'sensors' output) then use '??'
+        if(cpu_temp === '') cpu_temp = '??';
+        if(mb_temp === '') mb_temp = '??';
+        if(vid_temp === '') vid_temp = '??';
+
         // Create the clickable header.
-        m_sensorHeaderDiv.html("cpu: " + "<span class=green>" + m_sensorData['cpu_temp'] + "</span> | " +
-            " mb: " + "<span class=green>" + m_sensorData['mb_temp'] + "</span> | " +
-            " vid: " + "<span class=green>" + m_sensorData['vid_temp'] + "</span>");
+        m_sensorHeaderDiv.html("cpu: " + "<span class=green>" + cpu_temp + "</span> | " +
+            " mb: " + "<span class=green>" + mb_temp + "</span> | " +
+            " vid: " + "<span class=green>" + vid_temp + "</span>");
 
 
         // Create the div the expands and appears when you click the header.

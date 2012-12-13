@@ -29,14 +29,12 @@ class SensorService():
             if "CPU Temperature" in line:
                 cpu_temp = self._get_first_temp_in_sensor_line(line)
 
-
             elif "MB Temperature" in line:
                 mb_temp = self._get_first_temp_in_sensor_line(line)
 
             elif "temp1" in line:
                 vid_temp = self._get_first_temp_in_sensor_line(line)
 
-        #sensor_data = ''.join(sensors_by_line)
 
         get_sensor_data_result = {
             'sensors_by_line': sensors_by_line,

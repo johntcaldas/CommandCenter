@@ -40,6 +40,6 @@ function ExpandableContentDiv() {
     };
 
     this.placeErrorMessageOnPage = function () {
-        m_headerDiv.html("Error loading sensor data.");
+        m_headerDiv.html("There was a problem loading the data.");
     };
 }

@@ -87,6 +87,7 @@ span.green {
     color: #4DFFFF;
 }
 
+/* TODO: is the following redundant with the above? */
 span.contentContainer { color: #4DFFFF}
 
 
@@ -95,12 +96,14 @@ span.contentContainer { color: #4DFFFF}
 }
 
 .clickable h3 {
+    /* TODO: recompute padding for this and the left float thing using line-height instead of padding */
     padding: .5em .5em .5em .2em;
     margin: 0 0 0 0;
     float: left;
 }
 
 .contentHeader {
+    padding: .5em .5em .5em .2em;
     float: right;
 }
 
@@ -116,4 +119,8 @@ span.contentContainer { color: #4DFFFF}
 #topTable_filter input {
     background-color: #1F1F1F;
     color: #CCCCCC;
+}
+
+.right {
+    text-align: right;
 }
