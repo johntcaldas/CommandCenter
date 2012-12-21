@@ -27,7 +27,7 @@ def after_request_callback(response):
 
 @app.route("/", methods=['GET'])
 def home():
-    return render_template('main.html', theString = "Hello World!")
+    return render_template('home.html', theString = "Hello World!")
 
 
 @app.route("/disks", methods=['GET'])
