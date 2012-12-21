@@ -19,7 +19,7 @@ body {
     margin-right: 10%;
 }
 
-a, h1, h2 {
+h1, h2 {
     color: #FF6666;
 }
 
@@ -48,6 +48,9 @@ footer {
     color: #CCCCCC;
 }
 
+.invisible {
+    display: none;
+}
 
 
 /******************
@@ -67,6 +70,10 @@ footer {
 }
 #navcontainer ul li { display: inline; }
 #navcontainer ul li a { text-decoration: none; }
+
+.tab {
+    color: #FF6666;
+}
 
 .navTabSelected {
     border-bottom: 1px solid #1F1F1F;
@@ -121,7 +128,7 @@ span.contentContainer { color: #4DFFFF}
 
 .clear {
     clear:both;
-    font-size:0px;
+    font-size: 0;
 }
 
 #topTable_filter input {

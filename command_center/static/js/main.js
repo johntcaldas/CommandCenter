@@ -16,7 +16,7 @@ function Main() {
         // First set click handlers on the list elements.
         m_nav_list_items.each(function(index) {
            $(this).click(function(){
-               self.tabClick();
+               self.tabClick(this);
            });
         });
 
@@ -24,14 +24,14 @@ function Main() {
         m_nav_list_items.find('li:first').addClass('navTabSelected');
     };
 
-    this.tabClick = function() {
+    this.tabClick = function(tab) {
         // First set all tabs to not selected
         m_nav_list_items.each(function(index) {
            $(this).removeClass('navTabSelected');
         });
 
         // Then select 'this' tab
-        $(this).addClass('navTabSelected');
+        tab.addClass('navTabSelected');
     };
 
     this.getDate = function() {

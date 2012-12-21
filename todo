@@ -2,3 +2,4 @@ Logging
 Figure out how to factor out shared javascript functions (ie. toggle div showing).
 figure out success = false cases; started work on sensors
 break out the info-block unit to new js file
+ifconfig

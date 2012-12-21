@@ -27,17 +27,7 @@ def after_request_callback(response):
 
 @app.route("/", methods=['GET'])
 def home():
-    return render_template('home.html', theString = "Hello World!")
-
-
-@app.route("/disks", methods=['GET'])
-def disks():
-    return render_template('disks.html')
-
-
-@app.route("/about", methods=['GET'])
-def about():
-    return render_template('about.html')
+    return render_template('layout.html', theString = "Hello World!")
 
 
 if __name__ == "__main__":

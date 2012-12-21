@@ -1,3 +1,7 @@
+<!--
+This is the main layout for the site.
+-->
+
 <!doctype html>
 
 <title>Linux Command Center</title>
@@ -25,14 +29,22 @@
     <div id="navcontainer">
         <nav id="topnav">
             <ul>
-                <li> <a href="{{ url_for('home') }}"> Home </a> </li>
-                <li> <a href="{{ url_for('disks') }}"> Disks </a> </li>
-                <li> <a href="{{ url_for('about') }}"> About </a> </li>
+                <li class="tab clickable"> Home </li>
+                <li class="tab clickable"> Disks </li>
+                <li class="tab clickable"> About </li>
             </ul>
         </nav>
     </div>
-    {% block body %}
-    {% endblock %}
+
+    <!-- Home Tab (divs set as visible in template) -->
+    {% include "home.html" %}
+
+    <!-- Disks Tab (divs set as invisible in template) -->
+    {% include "disks.html" %}
+
+    <!-- About Tab (divs set as invisible in template) -->
+    {% include "about.html" %}
+
 </div>
 <footer id="footer">
 </footer>
