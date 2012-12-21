@@ -61,16 +61,23 @@ footer {
 {
     /*margin: 0;*/
     margin: 0 0 1em 0;
-    padding: 0 0 0 .3em;
+    padding: 0 0 0 0;
     list-style-type: none;
-    border-top: 1px solid #CCCCCC;
-    border-bottom: 1px solid #CCCCCC;
-    border-right: 1px solid #CCCCCC;
-    border-left: 1px solid #CCCCCC;
+    border: 1px solid #CCCCCC;
 }
 #navcontainer ul li { display: inline; }
 #navcontainer ul li a { text-decoration: none; }
 
+.navTabSelected {
+    border-bottom: 1px solid #1F1F1F;
+    border-right: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-top: 1px solid #4DFFFF;
+}
+
+.navTabNotSelected {
+
+}
 
 
 /*********************
