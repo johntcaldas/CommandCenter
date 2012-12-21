@@ -21,7 +21,7 @@ function Main() {
         });
 
         // Then set the first to selected.
-        m_nav_list_items.find('li:first').addClass('navTabSelected');
+        m_nav_list_items.filter(':first').addClass('navTabSelected');
     };
 
     this.tabClick = function(tab) {
@@ -31,7 +31,7 @@ function Main() {
         });
 
         // Then select 'this' tab
-        tab.addClass('navTabSelected');
+        $(tab).addClass('navTabSelected');
     };
 
     this.getDate = function() {
@@ -42,6 +42,7 @@ function Main() {
             });
     };
 }
+
 
 $(document).ready(function() {
     var home = new Main();
