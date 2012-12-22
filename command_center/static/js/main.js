@@ -54,8 +54,8 @@ function Main() {
 
         // Then select 'this' tab
         $(tab).addClass('navTabSelected');
-        var selectedId = $(tab).attr('id');
 
+        var selectedId = $(tab).attr('id');
         switch(selectedId) {
             case "li_home":
                 $('#home').removeClass("invisible");
