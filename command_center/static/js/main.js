@@ -25,13 +25,50 @@ function Main() {
     };
 
     this.tabClick = function(tab) {
+
+        // TODO: there's got to be a smarter way to do this without the redundant switch statements
+        // preferably dynamically, where we just strip out the 'li_' from the li's to get the corresponding
+        // div id.
+
         // First set all tabs to not selected
         m_nav_list_items.each(function(index) {
-           $(this).removeClass('navTabSelected');
+            if(this !== tab) {
+                $(this).removeClass('navTabSelected');
+                var currId = $(this).attr('id');
+
+                switch(currId) {
+                    case "li_home":
+                        $('#home').addClass("invisible");
+                        break;
+                    case "li_disks":
+                        $('#disks').addClass("invisible");
+                        break;
+                    case "li_about":
+                        $('#about').addClass("invisible");
+                        break;
+                    default:
+                        break;
+                }
+            }
         });
 
         // Then select 'this' tab
         $(tab).addClass('navTabSelected');
+        var selectedId = $(tab).attr('id');
+
+        switch(selectedId) {
+            case "li_home":
+                $('#home').removeClass("invisible");
+                break;
+            case "li_disks":
+                $('#disks').removeClass("invisible");
+                break;
+            case "li_about":
+                $('#about').removeClass("invisible");
+                break;
+            default:
+                break;
+        }
     };
 
     this.getDate = function() {
