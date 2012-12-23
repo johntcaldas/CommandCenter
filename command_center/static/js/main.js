@@ -33,7 +33,7 @@ function Main() {
         // First set all tabs to not selected
         m_nav_list_items.each(function(index) {
             if(this !== tab) {
-                $(this).removeClass('navTabSelected');
+                $(this).removeClass('navTabSelected').addClass('navTabNotSelected');
                 var currId = $(this).attr('id');
 
                 switch(currId) {
@@ -53,7 +53,7 @@ function Main() {
         });
 
         // Then select 'this' tab
-        $(tab).addClass('navTabSelected');
+        $(tab).removeClass('navTabNotSelected').addClass('navTabSelected');
 
         var selectedId = $(tab).attr('id');
         switch(selectedId) {
