@@ -26,24 +26,27 @@ This is the main layout for the site.
 
 <div class=page>
     <h1>Linux Command Center</h1>
-    <div id="navcontainer">
-        <nav id="topnav">
-            <ul>
-                <li id="li_home" class="tab clickable navTabSelected">Home</li>
-                <li id="li_disks" class="tab clickable navTabNotSelected">Disks</li>
-                <li id="li_about" class="tab clickable navTabNotSelected">About</li>
-            </ul>
-        </nav>
+
+    <div id="pagecontent">
+        <div id="navcontainer">
+            <nav id="topnav">
+                <ul>
+                    <li id="li_home" class="tab clickable navTabSelected">Home</li>
+                    <li id="li_disks" class="tab clickable navTabNotSelected">Disks</li>
+                    <li id="li_about" class="tab clickable navTabNotSelected">About</li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Home Tab (divs set as visible in template) -->
+        {% include "home.html" %}
+
+        <!-- Disks Tab (divs set as invisible in template) -->
+        {% include "disks.html" %}
+
+        <!-- About Tab (divs set as invisible in template) -->
+        {% include "about.html" %}
     </div>
-
-    <!-- Home Tab (divs set as visible in template) -->
-    {% include "home.html" %}
-
-    <!-- Disks Tab (divs set as invisible in template) -->
-    {% include "disks.html" %}
-
-    <!-- About Tab (divs set as invisible in template) -->
-    {% include "about.html" %}
 
 </div>
 <footer id="footer">

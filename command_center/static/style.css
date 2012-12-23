@@ -1,17 +1,19 @@
-/*
-Color Reference:
-assigning to classes strictly to get ide sugar.
-*/
+/******************
+* Color Reference *
+******************/
 .darkBackground { color: #000000; }
 .lessDarkBackground { color: #1F1F1F; }
 .grey { color: #CCCCCC; }
+.darkGrey { color: #939393;}
 .white {color: #EEEEEE }
 .red {color: #FF6666 }
 .green {color: #4DFFFF}
 
 
 
-/* Global */
+/******************
+* Global          *
+******************/
 body {
     font-family: Fixed, monospace;
     background: #000000;
@@ -20,16 +22,12 @@ body {
 }
 
 h1, h2 {
-    color: #FF6666;
-}
-
-h1, h2 {
+    color: #1F1F1F;
     font-family: 'Georgia', serif;
     margin: 0;
 }
 
 h1 {
-    /*border-bottom: 2px solid #EEEEEE;*/
     padding-bottom: .4em;
 }
 
@@ -39,10 +37,14 @@ h2 {
 
 .page {
     margin: 2em auto;
-    /*height: 50em;*/
     border: 5px solid #CCCCCC;
     padding: 0.8em;
+    background: #CCCCCC;
+}
+
+#pagecontent {
     background: #1F1F1F;
+    padding-bottom: .5em;
 }
 
 footer {
@@ -54,31 +56,29 @@ footer {
 }
 
 
+
 /******************
 * Navigation Bar  *
 ******************/
-#topnav {
-
-}
+#topnav {}
 
 #navcontainer ul
 {
-    /*margin: 0;*/
     margin: 0 0 1em 0;
     padding: 0 0 0 0;
     list-style-type: none;
-    border-bottom: 1px solid #CCCCCC;
-
+    background: #CCCCCC;
 }
 
-#navcontainer ul li {
+#navcontainer li {
     display: inline;
     padding: 0 .75em 0 .75em;
+    width: 4em;
     text-align: center;
 }
 
 .tab {
-    color: #FF6666;
+    /* color: #FF6666; */
 }
 
 .navTabSelected {
@@ -86,12 +86,15 @@ footer {
     border-right: none;
     border-left: none;
     border-top: none;
-    background: inherit;
+    background: #1F1F1F;
+    color: #FF6666;
 }
 
 .navTabNotSelected {
-    background: #261717;
+    background: #CCCCCC;
+    color: #1F1F1F;
 }
+
 
 
 /*********************
@@ -100,7 +103,7 @@ footer {
 
 div.contentContainer {
     border: 1px solid #FF6666;
-    margin: 2px;
+    margin: .5em 1em .5em 1em;
     color: #CCCCCC;
     font-size: .8em;
 }
@@ -108,10 +111,6 @@ div.contentContainer {
 span.green {
     color: #4DFFFF;
 }
-
-/* TODO: is the following redundant with the above? */
-span.contentContainer { color: #4DFFFF}
-
 
 .clickable {
     cursor: pointer;
@@ -129,20 +128,18 @@ span.contentContainer { color: #4DFFFF}
     float: right;
 }
 
-.contentFull {
-
-}
-
 .clear {
     clear:both;
     font-size: 0;
 }
 
+/* Used to style the search box in the top datatable. */
 #topTable_filter input {
     background-color: #1F1F1F;
     color: #CCCCCC;
 }
 
+/* Used to set top data table column content alignment */
 .right {
     text-align: right;
 }
