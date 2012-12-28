@@ -1,3 +1,5 @@
+"use strict";
+
 function ExpandableContentDiv() {
 
     var self = this;

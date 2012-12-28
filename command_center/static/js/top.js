@@ -1,3 +1,5 @@
+"use strict";
+
 function Top() {
 
     var self = this;

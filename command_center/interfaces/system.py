@@ -48,4 +48,7 @@ def system_date():
 def get_disks():
     disk_service = DiskService()
     disk_data = disk_service.get_disks()
-    return jsonify(disk_data)
+    return jsonify({
+        'success':True,
+        'disks': disk_data['disks']
+    })

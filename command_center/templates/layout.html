@@ -6,21 +6,29 @@ This is the main layout for the site.
 
 <title>Linux Command Center</title>
 
+<!-- Favicon -->
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
-<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<!-- jQuery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
 <script>
     window.jQuery ||
     document.write('<script src="{{ url_for('static', filename='js/lib/jquery-1.8.3.min.js') }}">\x3C/script>')
 </script>
 
+<!-- D3 -->
+<script type=text/javascript src="{{ url_for('static', filename='js/lib/d3.v3.min.js') }}"></script>
+
+<!-- get $SCRIPT_ROOT from framework -->
 <script type=text/javascript>
     $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
 
-<script type=text/javascript src="{{ url_for('static', filename='js/utils.js') }}"></script>
+<!-- CSS -->
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 
+<!-- JS -->
+<script type=text/javascript src="{{ url_for('static', filename='js/utils.js') }}"></script>
 <script type=text/javascript src="{{ url_for('static', filename='js/main.js') }}"></script>
 
 
