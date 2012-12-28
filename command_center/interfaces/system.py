@@ -5,6 +5,7 @@ import os
 from command_center import app
 from command_center.services.sensors import SensorService
 from command_center.services.top import TopService
+from command_center.services.disks import DiskService
 
 
 @app.route("/system/sensors", methods=['GET'])
@@ -42,3 +43,9 @@ def system_date():
 
     return jsonify({'success': True,
                     'date': date})
+
+@app.route("/system/disks", methods=['GET'])
+def get_disks():
+    disk_service = DiskService()
+    disk_data = disk_service.get_disks()
+    return jsonify(disk_data)

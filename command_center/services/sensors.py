@@ -35,7 +35,6 @@ class SensorService():
             elif "temp1" in line:
                 vid_temp = self._get_first_temp_in_sensor_line(line)
 
-
         get_sensor_data_result = {
             'sensors_by_line': sensors_by_line,
             'cpu_temp': cpu_temp,
