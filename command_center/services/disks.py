@@ -53,6 +53,7 @@ class DiskService():
         disk_index = 0   # current 'disk' index (independent of line)
         part_index = 0   # current 'partition' index
         in_disk = False  # are we currently inside a block of disc information
+        raid_arrays = 0  # count the number of raid arrays
 
         for line in disks_by_line:
             if "/dev/" in line and "Error" not in line and "Warning" not in line:
@@ -70,6 +71,9 @@ class DiskService():
                 disks[disk_index]['physical_sector_size'] = split_line[4]
                 disks[disk_index]['partition_table'] = split_line[5]
                 disks[disk_index]['model'] = split_line[6].rstrip(';\n')
+
+                if disks[disk_index]['bus'] == "md":
+                    raid_arrays += 1
 
             elif line == '\n' and in_disk:
                 in_disk = False
@@ -98,7 +102,9 @@ class DiskService():
                 part_index += 1
 
         get_disks_result = {
-            'disks': disks
+            'disk_data': disks,
+            'num_disks': disk_index - raid_arrays,
+            'num_raid_arrays': raid_arrays
         }
 
         return get_disks_result

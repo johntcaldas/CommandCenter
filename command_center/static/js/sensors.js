@@ -58,7 +58,7 @@ function Home() {
             " vid: " + "<span class=green>" + vid_temp + "</span>");
 
 
-        // Create the div the expands and appears when you click the header.
+        // Create the div that expands and appears when you click the header.
         var sensors_by_line = m_sensorData['sensors_by_line'];
         var tableHTML = "<table>";
 

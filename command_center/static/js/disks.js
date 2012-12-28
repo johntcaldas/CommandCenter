@@ -37,10 +37,14 @@ function Disks() {
     };
 
     this.placeDiskDataOnPage = function() {
+        var diskHeaderHtml = "Disks: " + '<span class="green">' + m_diskData['num_disks'] + '</span>';
+        diskHeaderHtml += ", RAID Arrays: " + '<span class="green">' + m_diskData['num_raid_arrays'] + '</span>';
+        m_diskHeaderDiv.html(diskHeaderHtml);
+
         d3.select("#diskDataFull")
             .append("ul")
             .selectAll("li")
-            .data(m_diskData['disks'])
+            .data(m_diskData['disk_data'])
             .enter()
             .append("li")
             .text(function (d) {
