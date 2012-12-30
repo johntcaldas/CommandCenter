@@ -5,7 +5,7 @@ This service interfaces with the linux 'sensors' command.
 
 """
 
-import os
+import utils
 import re
 
 class SensorService():
@@ -16,15 +16,13 @@ class SensorService():
         Return these as separate values, along with the whole dump of the command.
         """
 
-        sensors_handle = os.popen('sensors')
-        sensors_by_line = []
+        sensors_by_line = utils.get_command_output_by_line(self, 'sensors')
 
         cpu_temp = ""
         mb_temp = ""
         vid_temp = ""
 
-        for line in sensors_handle.readlines():
-            sensors_by_line.append(line)
+        for line in sensors_by_line:
 
             if "CPU Temperature" in line:
                 cpu_temp = self._get_first_temp_in_sensor_line(line)

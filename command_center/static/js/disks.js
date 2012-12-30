@@ -41,12 +41,26 @@ function Disks() {
         diskHeaderHtml += ", RAID Arrays: " + '<span class="green">' + m_diskData['num_raid_arrays'] + '</span>';
         m_diskHeaderDiv.html(diskHeaderHtml);
 
-        d3.select("#diskDataFull")
+        /*
+        d3.select("#diskList")
             .append("ul")
             .selectAll("li")
             .data(m_diskData['disk_data'])
             .enter()
             .append("li")
+            .append("div")
+            .attr("class", "diskLineItem")
+            .text(function (d) {
+                return d.partition_table + ": " + d.bus;
+            });
+        */
+
+        d3.select("#diskList")
+            .selectAll("div")
+            .data(m_diskData['disk_data'])
+            .enter()
+            .append("div")
+            .attr("class", "diskLineItem")
             .text(function (d) {
                 return d.partition_table + ": " + d.bus;
             });

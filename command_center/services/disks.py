@@ -12,15 +12,14 @@ give only access to specific commands.
 Info on fine grained command control for sudoers:
 http://ubuntuforums.org/showthread.php?p=7118727#post7118727
 """
-
-import os
-import re
+import utils
 
 class DiskService():
 
     def get_disks(self):
         """
-        Use 'sudo parted -lms' to get the list of disks on the system.
+        Use 'sudo parted -lms' to get the list of disks on the system. Expand this information with 'sudo udisks --dump'
+        to give a fuller picture of the disk situation.
 
         Sample output:
         BYT;
@@ -39,14 +38,16 @@ class DiskService():
         We want to cluster the line starting with '/dev/' with each following line until we reach a blank line. This
         will represent the information we have about a single disk.
 
+
         """
 
-        parted_handle = os.popen('sudo parted -lms')
-        disks_by_line = []
+        #*********************************************************
+        # Part 1: get disk information from parted               *
+        #*********************************************************
 
-        # First, read in all the command output
-        for line in parted_handle.readlines():
-            disks_by_line.append(line)
+        # Read in command output by line.
+        disks_by_line = utils.get_command_output_by_line(self,'sudo parted -lms')
+
 
         # Gather disk/partition info by disk
         disks = []       # our list of disks
@@ -100,6 +101,12 @@ class DiskService():
 
 
                 part_index += 1
+
+
+        #*********************************************************
+        # Part 2: Augment the parted info with info from udisks. *
+        #*********************************************************
+        udisks_by_line = utils.get_command_output_by_line(self, 'sudo udisks --dump')
 
         get_disks_result = {
             'disk_data': disks,

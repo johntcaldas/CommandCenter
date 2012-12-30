@@ -143,3 +143,23 @@ span.green {
 .right {
     text-align: right;
 }
+
+
+/*********************
+* Disks              *
+*********************/
+#diskList {
+    width: 30%;
+    margin: 0 0 2px 2px;
+    float: left;
+}
+
+#diskDetails{
+    float: right;
+}
+
+.diskLineItem {
+    background-color: #333333;
+    border: 1px solid #444444;
+    margin-bottom: 2px;
+}

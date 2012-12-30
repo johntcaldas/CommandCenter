@@ -4,7 +4,7 @@ Top Service
 This service interfaces with the linux 'sensors' command.
 
 """
-import os
+import utils
 
 class TopService():
 
@@ -14,8 +14,8 @@ class TopService():
         Return these as separate values, along with the whole dump of the command.
         """
 
-        top_handle = os.popen('top -n 1 -b')
-        top_by_line = []
+
+        top_by_line = utils.get_command_output_by_line(self, 'top -n 1 -b')
 
         first_line = ""
         header_by_line = []
@@ -25,9 +25,7 @@ class TopService():
         is_first = True
         is_header = False
         is_column_names = False
-        for line in top_handle.readlines():
-
-            top_by_line.append(line)
+        for line in top_by_line:
 
             if is_header:
                 if line == "\n":
