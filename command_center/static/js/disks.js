@@ -62,7 +62,7 @@ function Disks() {
             .append("div")
             .attr("class", "diskLineItem")
             .text(function (d) {
-                return d.partition_table + ": " + d.bus;
+                return d.device + ": " + d.bus;
             });
     };
 }
