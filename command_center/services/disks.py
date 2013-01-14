@@ -135,8 +135,11 @@ class DiskService():
 
 
         #*********************************************************
-        # Part 3: Get partition info (from udisks) for each disk *
+        # Part 3: Get partition info for each disk               *
         #*********************************************************
+
+        # Get all info from df
+        df_by_line = utils.get_command_output_by_line(self, 'df -h')
 
         for disk in disks:
             if disk['partition_count'] < 1:
@@ -165,10 +168,9 @@ class DiskService():
 
 
             for partition in disk['partitions']:
+
                 udisks_command = 'udisks --show-info ' + partition['device_file']
                 udisks_by_line = utils.get_command_output_by_line(self, udisks_command)
-
-
 
                 for line in udisks_by_line:
                     # TODO: following 10 lines copied from above, new method candidate.
@@ -206,6 +208,26 @@ class DiskService():
 
                     elif 'number' in name:
                         partition['number'] = value
+
+                for line in df_by_line:
+                    split_line = line.split()
+                    device_file = split_line[0].strip()
+
+                    if device_file == partition['device_file']:
+                        size = split_line[1].strip()
+                        used = split_line[2].strip()
+                        available = split_line[3].strip()
+                        used_percent = split_line[4].strip()
+
+                        partition['size'] = size
+                        partition['used'] = used
+                        partition['available'] = available
+                        partition['used_percent'] = used_percent
+
+
+
+
+
 
 
 
