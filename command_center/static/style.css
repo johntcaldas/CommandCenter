@@ -3,12 +3,17 @@
 ******************/
 .darkBackground { color: #000000; }
 .lessDarkBackground { color: #1F1F1F; }
+.darkestGrey {color: #333333; }
+.lessDarkestGrey { color: #444444; }
 .grey { color: #CCCCCC; }
 .darkGrey { color: #939393; }
 .white {color: #EEEEEE; }
 .red {color: #FF6666; }
+.darkRed {color: #562f2f; }
 .green {color: #4DFFFF; }
 .blue {color: #009dff; }
+
+
 
 
 
@@ -176,10 +181,10 @@ span.green {
 .diskBar {
     background-color: #1F1F1F;
     margin: .5em 0 .2em 0;
-    padding: 2px 0 2px 0;
+    padding: 0 0 0 0;
     width: 100%;
     overflow: auto;
-    height: .5em;
+    height: .9em;
     position: relative;
 }
 
@@ -200,9 +205,9 @@ span.green {
 }
 
 .diskBarUsage {
-    background-color: #CCCCCC;
+    background-color: #444444;;
 }
 
 .diskBarRaid {
-    background-color: #FF6666;
+    background-color: #562f2f;
 }
