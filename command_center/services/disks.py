@@ -26,6 +26,7 @@ class DiskService():
 
         disks = []       # our list of disks
         disk_index = 0   # current 'disk' index (independent of line)
+        raid_arrays = 0  # number of raid arrays we find
         for line in devices_by_line:
             if line is '':
                 continue
@@ -35,6 +36,10 @@ class DiskService():
             disks.append({})
             disks[disk_index]['device_file'] = '/dev/' + device_file
             disks[disk_index]['device_name'] = device_file
+
+            if 'md' in device_file:
+                raid_arrays += 1
+
             disk_index += 1
 
 
@@ -69,8 +74,11 @@ class DiskService():
                 if 'native-path' in name:
                     disk['native_path'] = value
 
-                elif 'size' in name:
+                elif '  size' == name:
                     disk['size'] = value
+                    human_size = int(value) / 1000000000
+                    human_size = str(human_size) + "GB"
+                    disk['human_size'] = human_size
 
                 elif 'block size' in name:
                     disk['block_size'] = value
@@ -186,10 +194,16 @@ class DiskService():
                     value = split_line[1].strip()
 
                     if 'is read only' in name:
-                        partition['is_read_only'] = value
+                        is_read_only = False
+                        if value == "1":
+                            is_read_only = True
+                        partition['is_read_only'] = is_read_only
 
                     elif 'is mounted' in name:
-                        partition['is_mounted'] = value
+                        is_mounted = False
+                        if value == "1":
+                            is_mounted = True
+                        partition['is_mounted'] = is_mounted
 
                     elif 'mount paths' in name:
                         partition['mount_paths'] = value
@@ -225,14 +239,6 @@ class DiskService():
                         partition['used_percent'] = used_percent
 
 
-
-
-
-
-
-
-
-        raid_arrays = 0
 
         get_disks_result = {
             'disk_data': disks,
