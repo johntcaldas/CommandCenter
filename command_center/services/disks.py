@@ -19,7 +19,7 @@ class DiskService():
 
         # Read in command output by line.
         ls_command = subprocess.Popen('ls -lahrt /dev', stdout=subprocess.PIPE, shell=True)
-        grep_command = subprocess.Popen('grep "[sh]d.$"', stdin=ls_command.stdout, stdout=subprocess.PIPE, shell=True)
+        grep_command = subprocess.Popen('grep "[shm]d.$"', stdin=ls_command.stdout, stdout=subprocess.PIPE, shell=True)
         devices_by_line = grep_command.communicate()[0].split('\n')
 
 
@@ -147,8 +147,8 @@ class DiskService():
 
 
             ls_command = subprocess.Popen('ls -lahrt /dev', stdout=subprocess.PIPE, shell=True)
-            grep_command = subprocess.Popen('grep "' + disk['device_name'] + '[0-9]$"',
-                                            stdin=ls_command.stdout, stdout=subprocess.PIPE, shell=True)
+            cmd = 'egrep "' + disk['device_name'] + 'p?[0-9]$"'
+            grep_command = subprocess.Popen(cmd, stdin=ls_command.stdout, stdout=subprocess.PIPE, shell=True)
             partitions_by_line = grep_command.communicate()[0].split('\n')
 
             partitions = []       # our list of partitions
