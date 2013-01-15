@@ -37,12 +37,15 @@ function Disks() {
     };
 
     this.placeDiskDataOnPage = function() {
+        // Sort the disks by device name (ie. sda, sdb, ...)
+        SortJsonArrayByProperty(m_diskData['disk_data'], 'device_name', 1);
+
+        // Create the header at the top of the disk section
         var diskHeaderHtml = "Disks: " + '<span class="green">' + m_diskData['num_disks'] + '</span>';
         diskHeaderHtml += ", RAID Arrays: " + '<span class="green">' + m_diskData['num_raid_arrays'] + '</span>';
         m_diskHeaderDiv.html(diskHeaderHtml);
 
-        SortJsonArrayByProperty(m_diskData['disk_data'], 'device_name', 1);
-
+        // Place the disk summary blocks on the left side of disk section.
         d3.select("#diskList")
             .selectAll("div")
             .data(m_diskData['disk_data'])
@@ -50,68 +53,85 @@ function Disks() {
             .append("div")
             .attr("class", "diskLineItem")
             .html(function (d) {
-
-                // TODO: refactor the crap out of this.
-                // TODO: show multiple partitions.
-
-                var html = '<div class="diskLineItemLeft">';
-                html += d.device_name + " " + d.human_size;
-                html += '</div>';
-
-                html += '<div class="diskLineItemRight">'
-                if(d.rotational_media.indexOf('Yes') !== -1) {
-                    if(d.device_name.indexOf('md') !== -1) {
-                        html += "RAID";
-                    }
-                    else {
-                        html += "HD";
-                    }
-                }
-                else {
-                    html += "SSD";
-                }
-                html += '</div>';
-
-                html += '<div class="clear"></div>';
-
-
-                var raid = false;
-                if(d.usage === "raid") {
-                    raid = true;
-                }
-
-                // Get usage percentage from first mounted partition.
-                var mountedPartition = null;
-                if(d.partitions != undefined) {
-                    for(var i = 0; i < d.partitions.length; i++) {
-                        if (d.partitions[i].is_mounted) {
-                            mountedPartition = d.partitions[i];
-                            break;
-                        }
-                    }
-                }
-
-
-                html += '<div class="diskBar">';
-
-
-                html += '<div class="diskBarLabel">';
-                if(raid) html += "RAID";
-                else html += mountedPartition.used_percent;
-                html += '</div>';
-
-                var width = "0%";
-                if(mountedPartition !== null) {
-                    width = mountedPartition.used_percent;
-                    html += '<div class="diskBarUsage" style="width: ' + width + '"></div>';
-                }
-                else if(raid) {
-                    html += '<div class="diskBarRaid"></div>';
-                }
-
-                html += '</div>';
-                return html;
+                return self.createDiskSummaryDiv(d);
             });
+    };
+
+    this.createDiskSummaryDiv = function(disk) {
+        // TODO: refactor the crap out of this.
+        // TODO: show multiple partitions.
+
+
+        //**************************************************************************************************************
+        // Part 1: Determine a few of the characteristics of the device we are about to display.                       *
+        //**************************************************************************************************************
+
+        // Determine if this device is best characterized as
+        // "HD"   -- a regular hard disk.
+        // "RAID" -- a linux software raid virtual device.
+        // "SSD"  -- a solid state drive.
+        var deviceType = "SSD";
+        if(disk.rotational_media.indexOf('Yes') !== -1) {
+            if(disk.device_name.indexOf('md') !== -1) {
+                deviceType = "RAID";
+            }
+            else {
+                deviceType = "HD";
+            }
+        }
+
+        // Determine if this device is being used as part of a linux software raid virtual device.
+        var raid = false;
+        if(disk.usage === "raid") {
+            raid = true;
+        }
+
+        // Get usage percentage from first mounted partition. For now we are only showing "usage percentage" information
+        // for the first partition we find. Later we'll want to be smart and extend this to show information about all
+        // partitions if possible.
+        var mountedPartition = null;
+        if(disk.partitions != undefined) {
+            for(var i = 0; i < disk.partitions.length; i++) {
+                if (disk.partitions[i].is_mounted) {
+                    mountedPartition = disk.partitions[i];
+                    break;
+                }
+            }
+        }
+
+
+        //**************************************************************************************************************
+        // Part 2: Build the html for this device's summary block.                                                     *
+        //**************************************************************************************************************
+
+        // Create the header.
+        var html = '<div class="diskLineItemLeft">';
+        html += disk.device_name + " " + disk.human_size;
+        html += '</div>';
+        html += '<div class="diskLineItemRight">' + deviceType + '</div>';
+        html += '<div class="clear"></div>';
+
+        // Figure out the text, width, and class for the percentage bar.
+        var percentageText = "N/A";
+        var width = "100%";
+        var percentageClass = "diskBarUsage";
+        if(raid) {
+            percentageText = "RAID";
+            percentageClass = "diskBarRaid";
+        }
+        else if (mountedPartition !== null){
+            width = mountedPartition.used_percent;
+            percentageText = width;
+        }
+
+        // Create the usage percentage bar.
+        html += '<div class="diskBar">';
+        html += '<div class="diskBarLabel">' + percentageText + '</div>';
+        html += '<div class="' + percentageClass + '" style="width: ' + width + '"></div>';
+        html += '</div>';
+
+
+        return html;
     };
 }
 
