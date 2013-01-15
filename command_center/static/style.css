@@ -170,6 +170,12 @@ span.green {
     margin-bottom: 2px;
 }
 
+.diskLineItem:hover {
+    /* TODO doc this color when it is good. */
+    /* background-color: #273a82; */
+    background-color: #273a82;
+}
+
 .diskLineItemRight {
     float: right;
 }
@@ -210,5 +216,9 @@ span.green {
 }
 
 .diskBarRaid {
+    background-color: #562f2f;
+}
+
+.diskDetailsPanel {
     background-color: #562f2f;
 }

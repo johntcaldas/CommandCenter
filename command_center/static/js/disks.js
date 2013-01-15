@@ -11,6 +11,8 @@ function Disks() {
     var m_diskData = [];
     var m_expandableContentDivUtil;
 
+    var m_currentlyShowingDiskDetailsDiv = null;
+
     this.initialize = function() {
         m_diskClickDiv = $("#disksClickableDiv");
         m_diskHeaderDiv = $("#diskDataHeader");
@@ -51,16 +53,45 @@ function Disks() {
             .data(m_diskData['disk_data'])
             .enter()
             .append("div")
-            .attr("class", "diskLineItem")
+            .attr("class", "diskLineItem clickable")
             .html(function (d) {
                 return self.createDiskSummaryDiv(d);
             });
+
+        // Attach the click event for disk summary blocks.
+        d3.select("#diskList")
+            .selectAll(".diskLineItem").on("click", (function (d) {
+               self.placeDiskDetailsOnPage(d, $(this));
+            }));
+
+        // Create disk detail divs.
+        d3.select("#diskDetails")
+            .selectAll("div")
+            .data(m_diskData['disk_data'])
+            .enter()
+            .append("div")
+            .attr("class", "diskDetailsPanel invisible")
+            .html(function (d) {
+                return self.createDiskDetailsDiv(d);
+            });
+    };
+
+    this.placeDiskDetailsOnPage = function(diskData, diskDiv) {
+        if(m_currentlyShowingDiskDetailsDiv !== null) {
+            m_currentlyShowingDiskDetailsDiv.addClass('invisible');
+        }
+        debugger;
+        diskDiv.removeClass('invisible');
+        m_currentlyShowingDiskDetailsDiv = diskDiv;
+    };
+
+    this.createDiskDetailsDiv = function(disk) {
+        return "device file: " + disk.device_file + " partition count=" + disk.partition_count;
     };
 
     this.createDiskSummaryDiv = function(disk) {
         // TODO: refactor the crap out of this.
         // TODO: show multiple partitions.
-
 
         //**************************************************************************************************************
         // Part 1: Determine a few of the characteristics of the device we are about to display.                       *
@@ -78,12 +109,6 @@ function Disks() {
             else {
                 deviceType = "HD";
             }
-        }
-
-        // Determine if this device is being used as part of a linux software raid virtual device.
-        var raid = false;
-        if(disk.usage === "raid") {
-            raid = true;
         }
 
         // Get usage percentage from first mounted partition. For now we are only showing "usage percentage" information
@@ -115,7 +140,7 @@ function Disks() {
         var percentageText = "N/A";
         var width = "100%";
         var percentageClass = "diskBarUsage";
-        if(raid) {
+        if(disk.usage === "raid") {
             percentageText = "RAID";
             percentageClass = "diskBarRaid";
         }
