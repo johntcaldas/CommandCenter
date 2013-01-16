@@ -61,7 +61,7 @@ function Disks() {
         // Attach the click event for disk summary blocks.
         d3.select("#diskList")
             .selectAll(".diskLineItem").on("click", (function (d) {
-               self.placeDiskDetailsOnPage(d, $(this));
+               self.switchVisibleDiskDetailsPanel(d, $(this));
             }));
 
         // Create disk detail divs.
@@ -76,19 +76,11 @@ function Disks() {
             });
     };
 
-    this.placeDiskDetailsOnPage = function(diskData, diskDiv) {
-        if(m_currentlyShowingDiskDetailsDiv !== null) {
-            m_currentlyShowingDiskDetailsDiv.addClass('invisible');
-        }
-        debugger;
-        diskDiv.removeClass('invisible');
-        m_currentlyShowingDiskDetailsDiv = diskDiv;
-    };
-
-    this.createDiskDetailsDiv = function(disk) {
-        return "device file: " + disk.device_file + " partition count=" + disk.partition_count;
-    };
-
+    /**
+     *  Creates HTML to display a disk summary block.
+     * @param disk       -- JSON data of the disk.
+     * @return {string}  -- HTML for the disk summary block.
+     */
     this.createDiskSummaryDiv = function(disk) {
         // TODO: refactor the crap out of this.
         // TODO: show multiple partitions.
@@ -157,6 +149,35 @@ function Disks() {
 
 
         return html;
+    };
+
+    /**
+     * Switches the visible "disk details panel".
+     *
+     * This is the click event for a disk summary item.
+     * @param diskData       - The JSON data for the clicked-on disk.
+     * @param diskSummaryDiv - jquery object of the clicked-on disk summary div
+     */
+    this.switchVisibleDiskDetailsPanel = function(diskData, diskSummaryDiv) {
+        if(m_currentlyShowingDiskDetailsDiv !== null) {
+            m_currentlyShowingDiskDetailsDiv.addClass('invisible');
+        }
+
+        d3.selectAll(".diskDetailsPanel").each(function(d, i) {
+            if(d.serial == diskData.serial) {
+                $(this).removeClass('invisible');
+                m_currentlyShowingDiskDetailsDiv = $(this);
+            }
+        });
+    };
+
+    /**
+     * Creates HTML to display a disk details block.
+     * @param disk      -- JSON data of the disk.
+     * @return {string} -- HTML for the disk details block.
+     */
+    this.createDiskDetailsDiv = function(disk) {
+        return "device file: " + disk.device_file + " partition count=" + disk.partition_count;
     };
 }
 
