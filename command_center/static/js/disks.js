@@ -94,8 +94,8 @@ function Disks() {
         // "RAID" -- a linux software raid virtual device.
         // "SSD"  -- a solid state drive.
         var deviceType = "SSD";
-        if(disk.rotational_media.indexOf('Yes') !== -1) {
-            if(disk.device_name.indexOf('md') !== -1) {
+        if(isSSD(disk)) {
+            if(isRaidDevice(disk)) {
                 deviceType = "RAID";
             }
             else {
@@ -129,7 +129,7 @@ function Disks() {
         html += '<div class="clear"></div>';
 
         // Figure out the text, width, and class for the percentage bar.
-        var percentageText = "N/A";
+        var percentageText = "No Mounted Partition";
         var width = "100%";
         var percentageClass = "diskBarUsage";
         if(disk.usage === "raid") {
@@ -164,7 +164,7 @@ function Disks() {
         }
 
         d3.selectAll(".diskDetailsPanel").each(function(d, i) {
-            if(d.serial == diskData.serial) {
+            if(d.device_file == diskData.device_file) {
                 $(this).removeClass('invisible');
                 m_currentlyShowingDiskDetailsDiv = $(this);
             }
@@ -177,7 +177,31 @@ function Disks() {
      * @return {string} -- HTML for the disk details block.
      */
     this.createDiskDetailsDiv = function(disk) {
-        return "device file: " + disk.device_file + " partition count=" + disk.partition_count;
+
+        var device_file = disk['device_file'];
+        var serial = disk['serial'];
+        var human_size = disk['human_size'];
+        var revision = disk['revision'];
+        var interface_bus = disk['interface'];
+        var is_raid_member = disk['is_raid_member'];
+        var rotational_media = disk['rotational_media'];
+        var can_spindown = disk['can_spindown'];
+        var native_path = disk['native_path'];
+        var raid_info = disk['raid_info'];
+        var usage = disk['usage'];
+        var if_speed = disk['if_speed'];
+
+        var html = '<div class="deviceDetailsLeft">' +
+            device_file + "<br>" +
+            "Size: " + human_size + "<br>" +
+            "Serial Number: " + serial + "<br>" +
+            "Revision: " + revision + "<br>" +
+            "Interface: " + interface_bus + "<br>" +
+            "Is Raid Member: " + is_raid_member + "<br>" +
+            "Is Rotational Media: " + rotational_media + "<br>" +
+            "Can Spindown: " + can_spindown + "<br>" +
+            '</div>'
+        return html;
     };
 }
 
