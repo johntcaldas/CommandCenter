@@ -6,7 +6,7 @@ This service exposes information about hard disks in the system.
 """
 import subprocess
 
-from server.command_center.services import utils
+from command_center.services import utils
 
 
 class DiskService():

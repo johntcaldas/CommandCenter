@@ -1,4 +1,4 @@
 from flask import Flask
 app = Flask(__name__)
 
-import server.command_center.interfaces.system
+import command_center.interfaces.system

@@ -3,9 +3,9 @@ import os
 from flask import jsonify
 
 from command_center import app
-from server.command_center.services.sensors import SensorService
-from server.command_center.services.top import TopService
-from server.command_center.services.disks import DiskService
+from command_center.services.sensors import SensorService
+from command_center.services.top import TopService
+from command_center.services.disks import DiskService
 
 
 @app.route("/system/sensors", methods=['GET'])

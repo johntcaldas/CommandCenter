@@ -4,7 +4,7 @@ Top Service
 This service interfaces with the linux 'sensors' command.
 
 """
-from server.command_center.services import utils
+from command_center.services import utils
 
 
 class TopService():

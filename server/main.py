@@ -4,8 +4,7 @@ The main execution entry-point for the webapp/services.
 
 # Import system stuff
 from flask import make_response
-
-from server.command_center import app
+from command_center import app
 
 
 @app.before_request
