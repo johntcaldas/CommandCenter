@@ -1,0 +1,116 @@
+<!--
+This is the main layout for the site.
+-->
+
+<!doctype html>
+
+<title>Linux Command Center</title>
+
+<!-- Favicon -->
+<link rel="shortcut icon" href="favicon.ico">
+
+<!-- jQuery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js"></script>
+<script>
+    window.jQuery ||
+    document.write('<script src="js/lib/jquery-1.8.3.min.js">\x3C/script>')
+</script>
+
+<!-- D3 -->
+<script type=text/javascript src="js/lib/d3.v3.min.js"></script>
+
+
+<!-- CSS -->
+<link rel=stylesheet type=text/css href="style.css">
+
+<!-- JS -->
+<script type=text/javascript src="js/utils.js"></script>
+<script type=text/javascript src="js/main.js"></script>
+
+
+<div class=page>
+    <h1 id="header_h1_id">Linux Command Center</h1>
+
+    <div id="pagecontent">
+        <div id="navcontainer">
+            <nav id="topnav">
+                <ul>
+                    <li id="li_home" class="tab clickable navTabSelected">Home</li>
+                    <li id="li_disks" class="tab clickable navTabNotSelected">Disks</li>
+                    <li id="li_about" class="tab clickable navTabNotSelected">About</li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- HOME -->
+        <!-- Sensors -->
+        <div id="home">
+            <script type=text/javascript src="js/sensors.js"></script>
+
+            <div id="sensorData" class="contentContainer">
+                <div id="sensorsClickableDiv" class="clickable">
+                    <div style="width: 10%">
+                        <div class="refresh_img clickable" style="float: left">
+                            <img src="img/refresh.png"/>
+                        </div>
+                        <h3 style="float: right">Sensors</h3>
+                        <div class="clear">&nbsp;</div>
+                    </div>
+                    <div id="sensorDataHeader" class="contentHeader"></div>
+                    <div class="clear">&nbsp;</div>
+                </div>
+                <div id="sensorDataFull">
+
+                </div>
+            </div>
+
+            <!-- Top -->
+            <script type=text/javascript src="js/top.js"></script>
+            <script type=text/javascript src="js/lib/jquery.dataTables.min.js"></script>
+
+            <div id="topData" class="contentContainer">
+                <div id="topClickableDiv" class="clickable">
+                    <h3>Top</h3>
+                    <div id="topDataHeader" class="contentHeader"></div>
+                    <div class="clear">&nbsp;</div>
+                </div>
+                <div id="topDataFull">
+                    <table id="topTable">
+                        <thead class="clickable">
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Disks Tab (divs set as invisible) -->
+        <div id="disks" class="invisible">
+            <script type=text/javascript src="js/disk_utils.js"></script>
+            <script type=text/javascript src="js/disks.js"></script>
+
+            <div id="diskData" class="contentContainer">
+                <div id="disksClickableDiv" class="clickable">
+                    <h3>Disks</h3>
+                    <div id="diskDataHeader" class="contentHeader"></div>
+                    <div class="clear">&nbsp;</div>
+                </div>
+                <div id="diskDataFull">
+                    <div id="diskList"></div>
+                    <div id="diskDetails"></div>
+                    <div class="clear">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Tab (divs set as invisible) -->
+        <div id="about" class="invisible">About</div>
+    </div>
+
+</div>
+<footer id="footer">
+</footer>
